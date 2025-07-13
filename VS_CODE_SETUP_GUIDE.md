@@ -63,11 +63,15 @@
 ## 🚀 Quick Shortcuts for Your Workflow
 
 ### **Essential Shortcuts:**
-- **Ctrl+`** → Open integrated terminal
+- **Ctrl+`** → Open integrated terminal (WSL bash)
 - **Ctrl+Shift+P** → Command palette (access all features)
 - **Ctrl+P** → Quick file search
 - **Ctrl+Alt+P** → Project Manager (switch projects)
 - **F1** → Help and commands
+
+### **WSL-Specific Shortcuts:**
+- **Ctrl+Shift+P** → "WSL: Reopen Folder in WSL"
+- **Ctrl+Shift+P** → "WSL: Reload Window"
 
 ### **Git Shortcuts:**
 - **Ctrl+Shift+G** → Git panel
@@ -100,32 +104,43 @@
 
 ## 🎯 Next Steps
 
-### **Test Your Setup:**
-1. **Open a project** → Use Ctrl+Alt+P to switch to hello-cline-demo
-2. **Start Live Server** → Right-click index.html → "Open with Live Server"
-3. **Make a change** → Edit some text, save, see it update instantly
-4. **Add a TODO** → Write `// TODO: Test this feature` somewhere
-5. **Check Todo Tree** → See your TODO appear in the sidebar
+### **Test Your WSL Setup:**
+1. **Verify terminal** → `Ctrl+`` should open bash in WSL
+2. **Test commands** → Run `ls -la` and `git --version`
+3. **Open a project** → Use Ctrl+Alt+P to switch to hello-cline-demo
+4. **Start Live Server** → Right-click index.html → "Open with Live Server"
+5. **Make a change** → Edit some text, save, see it update instantly
+6. **Add a TODO** → Write `// TODO: Test this feature` somewhere
+7. **Check Todo Tree** → See your TODO appear in the sidebar
 
-### **For Your Next Project:**
-1. **Create new folder** in cline-projects
-2. **Open in VS Code** → It will automatically appear in Project Manager
-3. **Start coding** → All your settings and extensions work immediately
-4. **Use Live Server** → Instant preview of your work
+### **For Your Next Project in WSL:**
+1. **Create new folder** in your WSL home or mounted Windows directory
+2. **Open in VS Code** → Use "WSL: Open Folder in WSL" from command palette
+3. **Project Manager** → Will automatically detect WSL projects
+4. **Start coding** → All your settings and extensions work immediately
+5. **Use Live Server** → Instant preview of your work
 
 ## 🔧 Troubleshooting
 
 ### **If Live Server doesn't work:**
 - Make sure you have an HTML file open
 - Right-click the HTML file in explorer → "Open with Live Server"
+- Ensure you're in WSL mode (check bottom-left corner of VS Code)
 
 ### **If formatting doesn't work:**
 - Check that Prettier is set as default formatter (already configured)
 - Save the file (Ctrl+S) to trigger formatting
+- Ensure file is in WSL filesystem for best performance
 
 ### **If Project Manager is empty:**
-- It scans your cline-projects folder automatically
+- It scans your configured project folders automatically
 - Create a new project folder and it will appear
+- For WSL projects, ensure proper folder permissions
+
+### **WSL-Specific Issues:**
+- **If terminal doesn't open:** Use Ctrl+Shift+P → "WSL: Reopen Folder in WSL"
+- **If extensions don't work:** Some extensions need to be installed in WSL specifically
+- **If file changes don't sync:** Ensure you're working in WSL filesystem, not Windows mounted drives for best performance
 
 ## 🎊 What This Setup Gives You
 

@@ -1,6 +1,6 @@
-# 🔧 Shell Integration Troubleshooting Guide
+# 🔧 Shell Integration Troubleshooting Guide - WSL Environment
 
-## ⚠️ If You See "Shell Integration Unavailable" Again
+## ⚠️ If You See \"Shell Integration Unavailable\" Again
 
 **DON'T IGNORE IT!** This message indicates a real problem that needs fixing.
 
@@ -19,17 +19,17 @@
 
 ### **Step 1: Test Current Status**
 Run this command in Cline to test if shell integration is working:
-```
-Write-Host "Shell integration test - you should see this output clearly"
+```bash
+echo "WSL shell integration test - you should see this output clearly"
 ```
 
 **If Cline shows the output clearly:** ✅ Integration is working  
 **If Cline says "output could not be captured":** ❌ Integration is broken
 
-### **Step 2: Check Terminal Profile**
+### **Step 2: Check WSL Terminal Profile**
 1. Press `Ctrl+Shift+P` in VS Code
 2. Type "Terminal: Select Default Profile"
-3. Make sure **PowerShell** is selected (not Command Prompt or other)
+3. Make sure **bash** is selected (for WSL environment)
 
 ### **Step 3: Restart VS Code Terminal**
 1. Close all terminal tabs in VS Code
@@ -48,18 +48,18 @@ Write-Host "Shell integration test - you should see this output clearly"
 
 **Success Rate:** ~70%
 
-### **Fix 2: Reset Terminal Profile**
+### **Fix 2: Reset Terminal Profile for WSL**
 1. `Ctrl+Shift+P` → "Terminal: Select Default Profile"
-2. Choose **PowerShell**
+2. Choose **bash** (WSL)
 3. Close and reopen terminal
 4. Test shell integration
 
 **Success Rate:** ~20%
 
-### **Fix 3: Check VS Code Settings**
+### **Fix 3: Check VS Code WSL Settings**
 Verify these settings in your VS Code settings.json:
 ```json
-"terminal.integrated.defaultProfile.windows": "PowerShell",
+"terminal.integrated.defaultProfile.linux": "bash",
 "terminal.integrated.shellIntegration.enabled": true,
 "terminal.integrated.shellIntegration.showWelcome": false
 ```
@@ -73,12 +73,18 @@ Verify these settings in your VS Code settings.json:
 
 **Success Rate:** ~2%
 
-### **Fix 5: Nuclear Option - Reset All Terminal Settings**
+### **Fix 5: Check WSL Specific Issues**
+WSL-specific troubleshooting:
+1. `Ctrl+Shift+P` → "WSL: Reload Window"
+2. Verify WSL is running: `wsl --list --verbose` (in Windows)
+3. Check WSL shell: `echo $SHELL` should show `/bin/bash`
+
+### **Fix 6: Nuclear Option - Reset All Terminal Settings**
 If nothing else works, reset terminal configuration:
 1. Open VS Code settings (`Ctrl+,`)
 2. Search for "terminal.integrated"
 3. Reset all terminal settings to default
-4. Reconfigure using our setup guide
+4. Reconfigure for WSL using our setup guide
 
 ---
 
@@ -86,7 +92,8 @@ If nothing else works, reset terminal configuration:
 
 ### **Regular Maintenance:**
 - **After VS Code updates:** Always test shell integration
-- **After Windows updates:** Check if PowerShell still works
+- **After WSL updates:** Check if bash integration still works
+- **After Windows updates:** Verify WSL functionality
 - **Monthly check:** Run a quick shell integration test
 
 ### **Warning Signs to Watch For:**
@@ -94,6 +101,7 @@ If nothing else works, reset terminal configuration:
 - Git operations appear successful but nothing changes
 - File creation commands don't show results
 - Error messages disappear immediately
+- WSL connection issues in VS Code
 
 ---
 
@@ -137,8 +145,8 @@ When you see the warning:
 
 ### **Quick Test Command:**
 Always use this to test shell integration:
-```powershell
-Write-Host "Integration test: $(Get-Date)"
+```bash
+echo "WSL Integration test: $(date)"
 ```
 You should see the current date/time clearly.
 
